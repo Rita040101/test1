@@ -1,6 +1,10 @@
 class Employee {
-    private String fullName, position, email, phone;
-    private int salary, age;
+    private String fullName;
+    private String position;
+    private String email;
+    private String phone;
+    private int salary;
+    private int age;
 
     public Employee(String fullName, String position, String email, String phone, int salary, int age) {
         this.fullName = fullName;
@@ -12,13 +16,14 @@ class Employee {
     }
 
     public void printInfo() {
-        System.out.println(fullName + ", " + position + ", " + email + ", " + phone + ", " + salary + ", " + age);
+        System.out.println("Сотрудник: " + fullName + ", Должность: " + position + ", Email: " + email +
+                ", Телефон: " + phone + ", Зарплата: " + salary + ", Возраст: " + age);
     }
 }
-
 class Park {
     class Attraction {
-        private String name, workTime;
+        private String name;
+        private String workTime;
         private int price;
 
         public Attraction(String name, String workTime, int price) {
@@ -26,34 +31,31 @@ class Park {
             this.workTime = workTime;
             this.price = price;
         }
-
         public void printInfo() {
-            System.out.println(name + ", " + workTime + ", " + price);
+            System.out.println("Аттракцион: " + name + ", Время работы: " + workTime + ", Стоимость: " + price);
         }
     }
 }
-
 public class Main {
     public static void main(String[] args) {
-        // Задача 2: Массив сотрудников
-        Employee[] employees = {
-                new Employee("Ivanov Ivan", "Engineer", "ivivan@mailbox.com", "892312312", 30000, 30),
-                new Employee("Petrov Petr", "Manager", "petrov@mailbox.com", "892312313", 40000, 45),
-                new Employee("Sidorov Sidr", "Director", "sidorov@mailbox.com", "892312314", 70000, 50),
-                new Employee("Smirnov Ivan", "Analyst", "smirnov@mailbox.com", "892312315", 50000, 28),
-                new Employee("Kuznetsov Alex", "Developer", "kuznetsov@mailbox.com", "892312316", 45000, 35)
-        };
+        Employee[] persArray = new Employee[5];
+        persArray[0] = new Employee("Иванов Иван", "Инженер", "ivivan@mailbox.com", "892312312", 30000, 30);
+        persArray[1] = new Employee("Петрова Алла", "Директор", "petrova@mailbox.com", "897894083", 80000, 43);
+        persArray[2] = new Employee("Бобров Павел", "Менеджер", "bobrov@mailbox.com", "895673892", 20000, 27);
+        persArray[3] = new Employee("Сомойлов Леонид", "Аналитик", "somoylov@mailbox.com", "890092847", 40000, 29);
+        persArray[4] = new Employee("Масляк Игорь", "Разработчик", "maslyak@mailbox.com", "892209578", 45000, 33);
 
-        System.out.println("Сотрудники:");
-        for (Employee employee : employees) employee.printInfo();
+        System.out.println("Информация о сотрудниках:");
+        for (Employee employee : persArray) {
+            employee.printInfo();
+        }
 
-        // Задача 3: Аттракционы
         Park park = new Park();
-        Park.Attraction rollerCoaster = park.new Attraction("Roller Coaster", "10:00 - 22:00", 500);
-        Park.Attraction ferrisWheel = park.new Attraction("Ferris Wheel", "09:00 - 21:00", 300);
+        Park.Attraction rollerCoaster = park.new Attraction("Американские горки", "12:00 - 19:00", 15);
+        Park.Attraction bigWheel = park.new Attraction("Колесо обозрения", "13:00 - 20:00", 20);
 
-        System.out.println("\nАттракционы:");
+        System.out.println("\nИнформация об аттракционах:");
         rollerCoaster.printInfo();
-        ferrisWheel.printInfo();
+        bigWheel.printInfo();
     }
 }
