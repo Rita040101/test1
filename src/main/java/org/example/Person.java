@@ -2,7 +2,7 @@ package org.example;
 
 import java.math.BigDecimal;
 
-public class Employee {
+public class Person {
     private String fullName;
     private String position;
     private String email;
@@ -10,7 +10,7 @@ public class Employee {
     private BigDecimal salary;
     private int age;
 
-    public Employee(String fullName, String position, String email, String phone, BigDecimal salary, int age) {
+    public Person(String fullName, String position, String email, String phone, BigDecimal salary, int age) {
         this.fullName = fullName;
         this.position = position;
         this.email = email;

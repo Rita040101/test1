@@ -1,61 +1,26 @@
-class Employee {
-    private String fullName;
-    private String position;
-    private String email;
-    private String phone;
-    private int salary;
-    private int age;
+package org.example;
 
-    public Employee(String fullName, String position, String email, String phone, int salary, int age) {
-        this.fullName = fullName;
-        this.position = position;
-        this.email = email;
-        this.phone = phone;
-        this.salary = salary;
-        this.age = age;
-    }
+import java.math.BigDecimal;
 
-    public void printInfo() {
-        System.out.println("Сотрудник: " + fullName + ", Должность: " + position + ", Email: " + email +
-                ", Телефон: " + phone + ", Зарплата: " + salary + ", Возраст: " + age);
-    }
-}
-class Park {
-    class Attraction {
-        private String name;
-        private String workTime;
-        private int price;
-
-        public Attraction(String name, String workTime, int price) {
-            this.name = name;
-            this.workTime = workTime;
-            this.price = price;
-        }
-        public void printInfo() {
-            System.out.println("Аттракцион: " + name + ", Время работы: " + workTime + ", Стоимость: " + price);
-        }
-    }
-}
 public class Main {
     public static void main(String[] args) {
-        Employee[] persArray = new Employee[5];
-        persArray[0] = new Employee("Иванов Иван", "Инженер", "ivivan@mailbox.com", "892312312", 30000, 30);
-        persArray[1] = new Employee("Петрова Алла", "Директор", "petrova@mailbox.com", "897894083", 80000, 43);
-        persArray[2] = new Employee("Бобров Павел", "Менеджер", "bobrov@mailbox.com", "895673892", 20000, 27);
-        persArray[3] = new Employee("Сомойлов Леонид", "Аналитик", "somoylov@mailbox.com", "890092847", 40000, 29);
-        persArray[4] = new Employee("Масляк Игорь", "Разработчик", "maslyak@mailbox.com", "892209578", 45000, 33);
+        Person[] employees = new Person[5];
+        employees[0] = new Person("Иванов Иван", "Инженер", "ivivan@mailbox.com", "892312312", new BigDecimal("30000"), 30);
+        employees[1] = new Person("Петрова Алла", "Директор", "petrova@mailbox.com", "897894083", new BigDecimal("80000"), 43);
+        employees[2] = new Person("Бобров Павел", "Менеджер", "bobrov@mailbox.com", "895673892", new BigDecimal("20000"), 27);
+        employees[3] = new Person("Сомойлов Леонид", "Аналитик", "somoylov@mailbox.com", "890092847", new BigDecimal("40000"), 29);
+        employees[4] = new Person("Масляк Игорь", "Разработчик", "maslyak@mailbox.com", "892209578", new BigDecimal("45000"), 33);
 
         System.out.println("Информация о сотрудниках:");
-        for (Employee employee : persArray) {
+        for (Person employee : employees) {
             employee.printInfo();
         }
 
         Park park = new Park();
-        Park.Attraction rollerCoaster = park.new Attraction("Американские горки", "12:00 - 19:00", 15);
-        Park.Attraction bigWheel = park.new Attraction("Колесо обозрения", "13:00 - 20:00", 20);
+        park.addAttraction("Американские горки", "12:00 - 19:00", new BigDecimal("15"));
+        park.addAttraction("Колесо обозрения", "13:00 - 20:00", new BigDecimal("20"));
 
         System.out.println("\nИнформация об аттракционах:");
-        rollerCoaster.printInfo();
-        bigWheel.printInfo();
+        park.printAttractions();
     }
 }
